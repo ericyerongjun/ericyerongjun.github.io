@@ -11,6 +11,7 @@
 
   const contacts = [
     { href: 'mailto:yerongjun03@gmail.com',                          label: 'yerongjun03@gmail.com',    icon: 'mail'     },
+    { href: 'mailto:rongjun.ye@connect.polyu.hk',                    label: 'rongjun.ye@connect.polyu.hk', icon: 'mail'  },
     { href: 'tel:+85269288029',                                      label: '+852 6928 8029',            icon: 'phone'    },
     { href: 'https://github.com/ericyerongjun',                      label: 'ericyerongjun',             icon: 'github'   },
     { href: 'https://www.kaggle.com/rongjunye',                      label: 'rongjunye',                 icon: 'kaggle'   },
