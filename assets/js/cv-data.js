@@ -1,9 +1,8 @@
 /**
  * cv-data.js — Edit this file to update your CV page.
  *
- * Every section below is an array of objects.
+ * Every section is an array of objects.
  * Add, remove, or edit entries freely — the page re-renders automatically.
- *
  * Fields marked "(optional)" can be omitted or set to null / [].
  */
 
@@ -12,46 +11,52 @@ const CV = {
   // ── EDUCATION ────────────────────────────────────────────────────────────
   education: [
     {
-      degree:   "B.Sc. in Data Science & Analytics",
-      school:   "The Hong Kong Polytechnic University (PolyU)",
+      degree:   "BSc (Honours) in Data Science and Analytics",
+      school:   "The Hong Kong Polytechnic University",
       location: "Hong Kong",
-      period:   "2023 – Present",
-      notes: [                          // (optional) bullet points under the entry
-        "Pursuing early graduation",
-        "Dean's Honours List, Dept. of Applied Mathematics (2024/25)",
+      period:   "Aug 2024 – May 2027 (Expected)",
+      gpa:      "GPA: 3.73/4.3",
+      notes: [
+        "Pursuing early graduation (3-year completion)",
+        "Dean's Honours List (2024/25); Full Entry Scholarship",
+        "Student Support Scholarship; Department of Applied Mathematics Scholar; PolyU Scholar",
+        "Courses relevant to AI: Calculus (A+), Linear Algebra (A+), Programming Fundamentals (A+), Principles of Programming (A+), Multivariable Calculus (A), Fundamentals of AI and Data Analytics (A), Introduction to Differential Calculus (A)",
+        "Core Coursework: Statistics, Linear Algebra, Multivariable Calculus, Stochastic Processes, Operations Research Methods, Statistical Inference, Statistical Learning, Applied Linear Models, Data Mining, Database Systems, Optimization Methods, Machine Learning, ODE, PDE, Big Data Analytics",
       ],
     },
-    // ── Add more entries below ──
-    // {
-    //   degree:   "Your Degree",
-    //   school:   "Your School",
-    //   location: "City, Country",
-    //   period:   "YYYY – YYYY",
-    //   notes:    [],
-    // },
   ],
 
   // ── RESEARCH EXPERIENCE ──────────────────────────────────────────────────
   research: [
     {
-      title:       "Undergraduate Research Member",
-      lab:         "PolyU X AI Lab",
-      supervisor:  "Prof. Xiao Huang",       // (optional)
-      period:      "2024 – Present",
-      description: "Conducting research in artificial intelligence and machine learning, with a focus on data-driven methods and model development.",
+      title:       "Student Assistant",
+      lab:         "The Hong Kong Polytechnic University (PolyU)",
+      supervisor:  "Prof. Xiao Huang",
+      period:      "Sep 2025 – Present",
+      bullets: [
+        "Conducting research on graph-based retrieval-augmented generation (Graph RAG) and knowledge graph construction.",
+        "Investigating hierarchical data representations and chunking strategies to improve factual consistency in LLM systems.",
+        "Leading a university-funded research project (K-Cubes) with publication intent targeting top-tier AI conferences.",
+        "Built data pipeline to extract noisy archive data from University ITS and connect the pipeline to our research (https://github.com/ericyerongjun/kcpl).",
+        "Investigating potential evaluation methods and baseline for research, and exploring energy-based diffusion and energy-based transformers.",
+      ],
     },
-    // ── Add more entries below ──
   ],
 
-  // ── WORK / INTERNSHIP EXPERIENCE ────────────────────────────────────────
-  // Leave as [] if you have none yet.
+  // ── PROFESSIONAL EXPERIENCE ──────────────────────────────────────────────
   work: [
-    // {
-    //   title:       "Software Engineering Intern",
-    //   company:     "Company Name",
-    //   period:      "Summer 2025",
-    //   description: "What you worked on.",
-    // },
+    {
+      title:   "Analyst Programmer",
+      company: "Hong Kong Monetary Authority (HKMA)",
+      period:  "Aug 2025 – Sep 2025",
+      note:    "Supervised by Wickson Lui · Resigned to continue study",
+      bullets: [
+        "Developed low-code, agentic AI systems and internal data-driven automation tools supporting regulatory and analytical workflows with Dify.",
+        "Built structured data processing pipelines and RAG-based document retrieval systems to improve knowledge accessibility across departments.",
+        "Automated knowledge base workflows and collaborated with cross-functional teams on AI system integration and deployment.",
+        "Led internal document knowledge database construction, created the documentation for metadata management and system architecture.",
+      ],
+    },
   ],
 
   // ── HONORS & AWARDS ──────────────────────────────────────────────────────
@@ -59,57 +64,73 @@ const CV = {
     {
       year:   "2024/25",
       award:  "Dean's Honours List",
-      issuer: "Department of Applied Mathematics, The Hong Kong Polytechnic University",
-      badge:  "Academic Excellence",        // (optional) label shown as a pill
+      issuer: "The Hong Kong Polytechnic University",
+      badge:  "Academic Excellence",
     },
-    // ── Add more entries below ──
+    {
+      year:   "2024",
+      award:  "Full Entry Scholarship",
+      issuer: "The Hong Kong Polytechnic University",
+      badge:  "Scholarship",
+    },
+    {
+      year:   "2024",
+      award:  "Student Support Scholarship",
+      issuer: "The Hong Kong Polytechnic University",
+      badge:  "Scholarship",
+    },
+    {
+      year:   "2024",
+      award:  "Department of Applied Mathematics Scholar",
+      issuer: "Department of Applied Mathematics, The Hong Kong Polytechnic University",
+      badge:  "Scholarship",
+    },
+    {
+      year:   "2024",
+      award:  "PolyU Scholar",
+      issuer: "The Hong Kong Polytechnic University",
+      badge:  "Scholarship",
+    },
   ],
 
   // ── PUBLICATIONS ─────────────────────────────────────────────────────────
-  // Leave as [] if you have none yet.
   publications: [
     // {
     //   title:   "Your Paper Title",
-    //   authors: "Rongjun Ye, Co-Author Name",   // bold your name with **Rongjun Ye**
+    //   authors: "**Rongjun Ye**, Co-Author Name",
     //   venue:   "Conference / Journal Name, Year",
     //   links: [
-    //     { label: "PDF",     href: "#" },
-    //     { label: "Code",    href: "#" },
-    //     { label: "arXiv",   href: "#" },
+    //     { label: "PDF",   href: "#" },
+    //     { label: "Code",  href: "#" },
     //   ],
     // },
   ],
 
-  // ── SKILLS ───────────────────────────────────────────────────────────────
+  // ── TECHNICAL SKILLS ─────────────────────────────────────────────────────
   skills: [
     {
       category: "Programming",
-      items: ["Python", "R", "SQL", "C++"],
+      items: ["PyTorch", "C++", "C", "Java", "SQL", "R", "TypeScript", "Claude Code"],
     },
     {
-      category: "Machine Learning & Data",
-      items: ["PyTorch", "TensorFlow", "scikit-learn", "Pandas", "NumPy"],
+      category: "Machine Learning & AI",
+      items: ["Statistical Learning", "Deep Learning", "Reinforcement Learning", "Data Mining", "Retrieval-Augmented Generation", "Knowledge Graphs", "Graph Neural Networks"],
     },
     {
-      category: "Tools",
-      items: ["Git", "Linux", "LaTeX", "Jupyter"],
+      category: "Tools & Platforms",
+      items: ["Git", "Linux/Unix", "Database Systems", "Server Administration", "Cloud", "Command Lines"],
     },
-    // ── Add more skill groups below ──
   ],
 
   // ── LANGUAGES ────────────────────────────────────────────────────────────
   languages: [
-    { lang: "Mandarin",  level: "Native"          },
-    { lang: "English",   level: "Fluent"           },
-    { lang: "Cantonese", level: "Conversational"   },
-    // ── Add more below ──
+    { lang: "Mandarin",  level: "Native"           },
+    { lang: "Cantonese", level: "Native"            },
+    { lang: "English",   level: "Highly Proficient" },
   ],
 
   // ── CV PDF ───────────────────────────────────────────────────────────────
-  // Set to null to hide the download button, or provide a path to your PDF.
-  // Place your PDF at:  assets/cv.pdf
-  cvPdfPath: "assets/cv.pdf",   // change to null to hide
-
+  cvPdfPath: "assets/cv.pdf",   // place your PDF at assets/cv.pdf, or set to null to hide
 };
 
 
@@ -123,8 +144,15 @@ function escapeHtml(str) {
     .replace(/"/g, '&quot;');
 }
 
+function linkify(str) {
+  // escape first, then turn http URLs into links
+  return escapeHtml(str).replace(
+    /(https?:\/\/[^\s,]+)/g,
+    '<a href="$1" target="_blank" rel="noopener" style="color:var(--brand);">$1</a>'
+  );
+}
+
 function boldMe(str) {
-  // Wrap **text** in <strong>
   return escapeHtml(str).replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
 }
 
@@ -158,7 +186,8 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="cv-item-main">
             <div class="cv-item-title">${escapeHtml(e.degree)}</div>
             <div class="cv-item-sub">${escapeHtml(e.school)}${e.location ? ' — ' + escapeHtml(e.location) : ''}</div>
-            ${e.notes && e.notes.length ? `<ul class="cv-notes">${e.notes.map(n => `<li>${escapeHtml(n)}</li>`).join('')}</ul>` : ''}
+            ${e.gpa ? `<div style="font-size:13px;font-weight:600;color:var(--brand);margin-top:3px;">${escapeHtml(e.gpa)}</div>` : ''}
+            ${e.notes && e.notes.length ? `<ul class="cv-notes">${e.notes.map(n => `<li>${linkify(n)}</li>`).join('')}</ul>` : ''}
           </div>
           <div class="cv-item-date">${escapeHtml(e.period)}</div>
         </div>`;
@@ -173,9 +202,9 @@ document.addEventListener('DOMContentLoaded', () => {
       html += `
         <div class="cv-item">
           <div class="cv-item-main">
-            <div class="cv-item-title">${escapeHtml(r.title)}</div>
-            <div class="cv-item-sub">${escapeHtml(r.lab)}${r.supervisor ? ' — supervised by ' + escapeHtml(r.supervisor) : ''}</div>
-            ${r.description ? `<div class="cv-item-desc">${escapeHtml(r.description)}</div>` : ''}
+            <div class="cv-item-title">${escapeHtml(r.title)} — ${escapeHtml(r.lab)}</div>
+            ${r.supervisor ? `<div class="cv-item-sub">Supervised by ${escapeHtml(r.supervisor)}</div>` : ''}
+            ${r.bullets && r.bullets.length ? `<ul class="cv-notes" style="margin-top:8px;">${r.bullets.map(b => `<li style="margin-bottom:5px;">${linkify(b)}</li>`).join('')}</ul>` : ''}
           </div>
           <div class="cv-item-date">${escapeHtml(r.period)}</div>
         </div>`;
@@ -185,14 +214,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Work
   if (CV.work && CV.work.length) {
-    html += `<div class="cv-block"><div class="cv-block-title">Work Experience</div>`;
+    html += `<div class="cv-block"><div class="cv-block-title">Professional Experience</div>`;
     CV.work.forEach(w => {
       html += `
         <div class="cv-item">
           <div class="cv-item-main">
             <div class="cv-item-title">${escapeHtml(w.title)}</div>
             <div class="cv-item-sub">${escapeHtml(w.company)}</div>
-            ${w.description ? `<div class="cv-item-desc">${escapeHtml(w.description)}</div>` : ''}
+            ${w.note ? `<div class="cv-item-sub" style="font-style:italic;">${escapeHtml(w.note)}</div>` : ''}
+            ${w.bullets && w.bullets.length ? `<ul class="cv-notes" style="margin-top:8px;">${w.bullets.map(b => `<li style="margin-bottom:5px;">${escapeHtml(b)}</li>`).join('')}</ul>` : ''}
           </div>
           <div class="cv-item-date">${escapeHtml(w.period)}</div>
         </div>`;
