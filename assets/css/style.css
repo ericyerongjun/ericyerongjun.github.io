@@ -369,6 +369,74 @@ body {
 }
 .pub-link:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-glow); }
 
+/* ── NEWS ────────────────────────────────── */
+.news-list { display: flex; flex-direction: column; gap: 0; }
+
+.news-item {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 0 20px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--border-light);
+  align-items: start;
+}
+.news-item:first-child { padding-top: 0; }
+.news-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.news-date {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--brand);
+  padding-top: 2px;
+  white-space: nowrap;
+}
+
+.news-text { font-size: 14px; color: var(--text-body); line-height: 1.6; }
+.news-text a { color: var(--brand); text-decoration: none; }
+.news-text a:hover { text-decoration: underline; }
+
+/* ── PROJECTS ─────────────────────────── */
+.proj-list { display: flex; flex-direction: column; }
+
+.proj-item {
+  padding: 20px 0;
+  border-bottom: 1px solid var(--border-light);
+}
+.proj-item:first-child { padding-top: 0; }
+.proj-item:last-child { border-bottom: none; padding-bottom: 0; }
+
+.proj-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.proj-title { font-weight: 600; color: var(--text); font-size: 15px; }
+.proj-sub { font-size: 13px; color: var(--text-muted); margin-top: 2px; }
+
+.proj-desc { font-size: 14px; color: var(--text-body); line-height: 1.65; margin: 0; }
+
+.proj-links { display: flex; gap: 8px; flex-shrink: 0; }
+
+.proj-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 4px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  text-decoration: none;
+  background: var(--bg);
+  white-space: nowrap;
+  transition: all .15s;
+}
+.proj-link:hover { border-color: var(--brand); color: var(--brand); background: var(--brand-glow); }
+
 /* ── HONORS TABLE ─────────────────────── */
 .honors-list { display: flex; flex-direction: column; gap: 0; }
 
