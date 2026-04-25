@@ -49,7 +49,7 @@ const CV = {
       title:   "Analyst Programmer",
       company: "Hong Kong Monetary Authority (HKMA)",
       period:  "Aug 2025 – Sep 2025",
-      note:    "Supervised by Wickson Lui · Resigned to continue study",
+      note:    "Supervised by Wickson Hui · Resigned to continue study",
       bullets: [
         "Developed low-code, agentic AI systems and internal data-driven automation tools supporting regulatory and analytical workflows with Dify.",
         "Built structured data processing pipelines and RAG-based document retrieval systems to improve knowledge accessibility across departments.",
