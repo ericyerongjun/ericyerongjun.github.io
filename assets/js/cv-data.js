@@ -20,7 +20,7 @@ const CV = {
         "Pursuing early graduation (3-year completion)",
         "Dean's Honours List (2024/25); Full Entry Scholarship",
         "Student Support Scholarship; Department of Applied Mathematics Scholar; PolyU Scholar",
-        "Courses relevant to AI: Calculus (A+), Linear Algebra (A+), Programming Fundamentals (A+), Principles of Programming (A+), Multivariable Calculus (A), Fundamentals of AI and Data Analytics (A), Introduction to Differential Calculus (A)",
+        "Courses relevant to AI: Calculus (A+), Linear Algebra (A+), Programming Fundamentals (A+), Principles of Programming (A+), Further Mathematical Methods (A+), Multivariable Calculus (A), Fundamentals of AI and Data Analytics (A), Introduction to Differential Calculus (A)",
         "Core Coursework: Statistics, Linear Algebra, Multivariable Calculus, Stochastic Processes, Operations Research Methods, Statistical Inference, Statistical Learning, Applied Linear Models, Data Mining, Database Systems, Optimization Methods, Machine Learning, ODE, PDE, Big Data Analytics",
       ],
     },
@@ -110,11 +110,11 @@ const CV = {
   skills: [
     {
       category: "Programming",
-      items: ["PyTorch", "C++", "C", "Java", "SQL", "R", "TypeScript", "Claude Code"],
+      items: ["PyTorch", "C++", "C", "R", "CUDA"],
     },
     {
       category: "Machine Learning & AI",
-      items: ["Statistical Learning", "Deep Learning", "Reinforcement Learning", "Data Mining", "Retrieval-Augmented Generation", "Knowledge Graphs", "Graph Neural Networks"],
+      items: ["Statistical Learning", "Deep Learning", "Reinforcement Learning", "Data Mining", "Agent Memory", "Knowledge Graphs", " Neural Networks"],
     },
     {
       category: "Tools & Platforms",
