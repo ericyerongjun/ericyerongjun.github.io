@@ -175,7 +175,8 @@ body {
 .contact-item a:hover { color: var(--brand); }
 
 .contact-item.disabled,
-.contact-item.disabled a {
+.contact-item.disabled a,
+.contact-item.disabled span {
   color: var(--sidebar-muted);
   opacity: 0.5;
   cursor: not-allowed;

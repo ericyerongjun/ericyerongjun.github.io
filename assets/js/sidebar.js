@@ -41,7 +41,7 @@
 
   const contactHtml = contacts.map(c => {
     const isExternal = c.href.startsWith('http');
-    const useFill = c.icon === 'kaggle' || c.icon === 'scholar';
+    const useFill = c.icon === 'kaggle';
     const isDisabled = c.disabled;
     const cls = isDisabled ? ' contact-item disabled' : ' contact-item';
     const linkOrSpan = isDisabled
