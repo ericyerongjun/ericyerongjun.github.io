@@ -130,7 +130,7 @@ const CV = {
   ],
 
   // ── CV PDF ───────────────────────────────────────────────────────────────
-  cvPdfPath: "assets/cv.pdf",   // place your PDF at assets/cv.pdf, or set to null to hide
+  cvPdfPath: null,              // set to "assets/cv.pdf" once the PDF is uploaded
 };
 
 
@@ -167,15 +167,21 @@ document.addEventListener('DOMContentLoaded', () => {
   let html = '';
 
   // Download button
+  html += `<div class="cv-top-actions">`;
   if (CV.cvPdfPath) {
     html += `
-      <div class="cv-top-actions">
         <a href="${escapeHtml(CV.cvPdfPath)}" class="btn-download" download>
           ${svgIcon('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>')}
           Download PDF
-        </a>
-      </div>`;
+        </a>`;
+  } else {
+    html += `
+        <span class="btn-download btn-disabled" aria-disabled="true">
+          ${svgIcon('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>')}
+          CV (coming soon)
+        </span>`;
   }
+  html += `</div>`;
 
   // ── Education
   if (CV.education.length) {
