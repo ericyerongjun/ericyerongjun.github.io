@@ -111,6 +111,10 @@ const CV = {
   // ── TECHNICAL SKILLS ─────────────────────────────────────────────────────
   skills: [
     {
+      category: "Mathematical Foundations",
+      items: ["Real Analysis", "Linear Algebra", "Optimization", "Statistical Learning", "High-Dimensional Data Analysis"],
+    },
+    {
       category: "Programming",
       items: ["PyTorch", "C++", "C", "R", "CUDA"],
     },
