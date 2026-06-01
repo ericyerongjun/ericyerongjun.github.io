@@ -95,15 +95,17 @@ const CV = {
 
   // ── PUBLICATIONS ─────────────────────────────────────────────────────────
   publications: [
-    // {
-    //   title:   "Your Paper Title",
-    //   authors: "**Rongjun Ye**, Co-Author Name",
-    //   venue:   "Conference / Journal Name, Year",
-    //   links: [
-    //     { label: "PDF",   href: "#" },
-    //     { label: "Code",  href: "#" },
-    //   ],
-    // },
+    {
+      title:   "[Title hidden]",
+      authors: "**Rongjun Ye**, Xiao Huang",
+      venue:   "ICLR 2027 (In Preparation)",
+      badge:   "In Preparation",
+      desc:    "[Details available upon request]",
+      links: [
+        { label: "Paper", href: null },
+        { label: "Code",  href: null },
+      ],
+    },
   ],
 
   // ── TECHNICAL SKILLS ─────────────────────────────────────────────────────
@@ -248,6 +250,34 @@ document.addEventListener('DOMContentLoaded', () => {
             ${h.badge ? `<span class="honor-badge">${escapeHtml(h.badge)}</span>` : ''}
           </div>
           <div class="cv-item-date">${escapeHtml(h.year)}</div>
+        </div>`;
+    });
+    html += `</div>`;
+  }
+
+  // ── Publications
+  if (CV.publications.length) {
+    html += `<div class="cv-block"><div class="cv-block-title">Publications</div>`;
+    CV.publications.forEach(p => {
+      html += `
+        <div class="cv-item">
+          <div class="cv-item-main">
+            <div class="cv-item-title">${boldMe(p.title)}</div>
+            <div class="cv-item-sub">${boldMe(p.authors)}</div>
+            <div class="cv-item-sub" style="font-style:italic;color:var(--brand);">${escapeHtml(p.venue)}</div>
+            ${p.badge ? `<span class="honor-badge">${escapeHtml(p.badge)}</span>` : ''}
+            ${p.desc ? `<div class="cv-item-desc">${escapeHtml(p.desc)}</div>` : ''}
+            ${p.links && p.links.length ? `
+              <div class="pub-links" style="margin-top:10px;">
+                ${p.links.map(l => {
+                  if (l.href) {
+                    return `<a href="${escapeHtml(l.href)}" class="pub-link" target="_blank" rel="noopener">${svgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>')} ${escapeHtml(l.label)}</a>`;
+                  }
+                  return `<span class="pub-link btn-disabled" aria-disabled="true">${svgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>')} ${escapeHtml(l.label)}</span>`;
+                }).join('')}
+              </div>`
+            : ''}
+          </div>
         </div>`;
     });
     html += `</div>`;
