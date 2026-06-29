@@ -8,6 +8,23 @@
 
 const CV = {
 
+  // ── PROFILE ──────────────────────────────────────────────────────────────
+  profile: {
+    name:        "RONGJUN YE",
+    title:       "Undergraduate Student - Data Science & Analytics",
+    affiliation: "The Hong Kong Polytechnic University",
+    contact: [
+      "yerongjun03@gmail.com",
+      "rongjun.ye@connect.polyu.hk",
+      "+852 6928 8029",
+    ],
+    links: [
+      "github.com/ericyerongjun",
+      "linkedin.com/in/rongjun-ye-814453331",
+      "kaggle.com/rongjunye",
+    ],
+  },
+
   // ── EDUCATION ────────────────────────────────────────────────────────────
   education: [
     {
@@ -94,19 +111,7 @@ const CV = {
   ],
 
   // ── PUBLICATIONS ─────────────────────────────────────────────────────────
-  publications: [
-    {
-      title:   "[Title hidden]",
-      authors: "**Rongjun Ye**, Xiao Huang",
-      venue:   "ICLR 2027 (In Preparation)",
-      badge:   "In Preparation",
-      desc:    "[Details available upon request]",
-      links: [
-        { label: "Paper", href: null },
-        { label: "Code",  href: null },
-      ],
-    },
-  ],
+  publications: [],
 
   // ── TECHNICAL SKILLS ─────────────────────────────────────────────────────
   skills: [
@@ -172,20 +177,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let html = '';
 
-  // Download button
+  // PDF action
   html += `<div class="cv-top-actions">`;
   if (CV.cvPdfPath) {
     html += `
-        <a href="${escapeHtml(CV.cvPdfPath)}" class="btn-download" download>
+        <a href="${escapeHtml(CV.cvPdfPath)}" class="btn-download" target="_blank" rel="noopener">
           ${svgIcon('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>')}
-          Download PDF
+          Open PDF
         </a>`;
   } else {
     html += `
-        <span class="btn-download btn-disabled" aria-disabled="true">
+        <button type="button" class="btn-download" id="download-generated-cv">
           ${svgIcon('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>')}
-          CV (coming soon)
-        </span>`;
+          <span>Open PDF</span>
+        </button>`;
   }
   html += `</div>`;
 
@@ -312,4 +317,30 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   root.innerHTML = html;
+
+  const generatedCvButton = document.getElementById('download-generated-cv');
+  if (generatedCvButton) {
+    generatedCvButton.addEventListener('click', () => {
+      const label = generatedCvButton.querySelector('span');
+      const originalLabel = label ? label.textContent : 'Open PDF';
+
+      generatedCvButton.disabled = true;
+      generatedCvButton.classList.add('is-loading');
+      if (label) label.textContent = 'Opening...';
+
+      try {
+        if (!window.CVPdfGenerator) {
+          throw new Error('CV PDF generator is not loaded.');
+        }
+        window.CVPdfGenerator.openPreview(CV);
+      } catch (error) {
+        console.error(error);
+        alert('Unable to open the CV PDF preview. Please allow popups and try again.');
+      } finally {
+        generatedCvButton.disabled = false;
+        generatedCvButton.classList.remove('is-loading');
+        if (label) label.textContent = originalLabel;
+      }
+    });
+  }
 });

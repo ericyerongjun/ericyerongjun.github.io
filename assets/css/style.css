@@ -540,16 +540,24 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 7px;
+  border: 0;
   background: var(--brand);
   color: #fff;
+  cursor: pointer;
+  font-family: var(--font);
   text-decoration: none;
   font-size: 13.5px;
   font-weight: 600;
+  line-height: 1;
   padding: 9px 18px;
   border-radius: var(--radius-sm);
   transition: background .18s;
 }
 .btn-download:hover { background: var(--brand-dark); }
+.btn-download:disabled {
+  cursor: wait;
+  opacity: 0.8;
+}
 
 .btn-disabled {
   background: var(--border-light) !important;
