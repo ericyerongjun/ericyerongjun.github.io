@@ -189,97 +189,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let html = '';
 
-  // PDF action
-  html += `<div class="cv-top-actions">`;
-  if (CV.cvPdfPath) {
-    html += `
-        <a href="${escapeHtml(CV.cvPdfPath)}" class="btn-download" target="_blank" rel="noopener">
-          ${svgIcon('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>')}
-          Open PDF
-        </a>`;
+  // PDF action — rendered into the header slot when the page provides one
+  const pdfIcon = svgIcon('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>');
+  const pdfSlot = document.getElementById('cv-download-slot');
+  const pdfClass = pdfSlot ? 'hero-link' : 'btn-download';
+  const pdfHtml = CV.cvPdfPath
+    ? `<a href="${escapeHtml(CV.cvPdfPath)}" class="${pdfClass}" target="_blank" rel="noopener">${pdfIcon} <span>CV (PDF)</span></a>`
+    : `<button type="button" class="${pdfClass}" id="download-generated-cv">${pdfIcon} <span>CV (PDF)</span></button>`;
+
+  if (pdfSlot) {
+    pdfSlot.innerHTML = pdfHtml;
   } else {
-    html += `
-        <button type="button" class="btn-download" id="download-generated-cv">
-          ${svgIcon('<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>')}
-          <span>Open PDF</span>
-        </button>`;
-  }
-  html += `</div>`;
-
-  // ── Education
-  if (CV.education.length) {
-    html += `<div class="cv-block"><h2 class="cv-block-title">Education</h2>`;
-    CV.education.forEach(e => {
-      html += `
-        <div class="cv-item">
-          <div class="cv-item-main">
-            <div class="cv-item-title">${escapeHtml(e.degree)}</div>
-            <div class="cv-item-sub">${escapeHtml(e.school)}${e.location ? ' — ' + escapeHtml(e.location) : ''}</div>
-            ${e.gpa ? `<div style="font-size:13px;font-weight:600;color:var(--brand);margin-top:3px;">${escapeHtml(e.gpa)}</div>` : ''}
-            ${e.notes && e.notes.length ? `<ul class="cv-notes">${e.notes.map(n => `<li>${linkify(n)}</li>`).join('')}</ul>` : ''}
-          </div>
-          <div class="cv-item-date">${escapeHtml(e.period)}</div>
-        </div>`;
-    });
-    html += `</div>`;
-  }
-
-  // ── Research
-  if (CV.research.length) {
-    html += `<div class="cv-block"><h2 class="cv-block-title">Research Experience</h2>`;
-    CV.research.forEach(r => {
-      html += `
-        <div class="cv-item">
-          <div class="cv-item-main">
-            <div class="cv-item-title">${escapeHtml(r.title)} — ${escapeHtml(r.lab)}</div>
-            ${r.supervisor ? `<div class="cv-item-sub">Supervised by ${escapeHtml(r.supervisor)}</div>` : ''}
-            ${r.mentors ? `<div class="cv-item-sub">Mentored by ${escapeHtml(r.mentors)}</div>` : ''}
-            ${r.bullets && r.bullets.length ? `<ul class="cv-notes" style="margin-top:8px;">${r.bullets.map(b => `<li style="margin-bottom:5px;">${linkify(b)}</li>`).join('')}</ul>` : ''}
-          </div>
-          <div class="cv-item-date">${escapeHtml(r.period)}</div>
-        </div>`;
-    });
-    html += `</div>`;
-  }
-
-  // ── Work
-  if (CV.work && CV.work.length) {
-    html += `<div class="cv-block"><h2 class="cv-block-title">Professional Experience</h2>`;
-    CV.work.forEach(w => {
-      html += `
-        <div class="cv-item">
-          <div class="cv-item-main">
-            <div class="cv-item-title">${escapeHtml(w.title)}</div>
-            <div class="cv-item-sub">${escapeHtml(w.company)}</div>
-            ${w.note ? `<div class="cv-item-sub" style="font-style:italic;">${escapeHtml(w.note)}</div>` : ''}
-            ${w.bullets && w.bullets.length ? `<ul class="cv-notes" style="margin-top:8px;">${w.bullets.map(b => `<li style="margin-bottom:5px;">${escapeHtml(b)}</li>`).join('')}</ul>` : ''}
-          </div>
-          <div class="cv-item-date">${escapeHtml(w.period)}</div>
-        </div>`;
-    });
-    html += `</div>`;
-  }
-
-  // ── Honors
-  if (CV.honors.length) {
-    html += `<div class="cv-block"><h2 class="cv-block-title">Honors &amp; Awards</h2>`;
-    CV.honors.forEach(h => {
-      html += `
-        <div class="cv-item">
-          <div class="cv-item-main">
-            <div class="cv-item-title">${escapeHtml(h.award)}</div>
-            <div class="cv-item-sub">${escapeHtml(h.issuer)}</div>
-            ${h.badge ? `<span class="honor-badge">${escapeHtml(h.badge)}</span>` : ''}
-          </div>
-          <div class="cv-item-date">${escapeHtml(h.year)}</div>
-        </div>`;
-    });
-    html += `</div>`;
+    html += `<div class="cv-top-actions">${pdfHtml}</div>`;
   }
 
   // ── Publications
   if (CV.publications.length) {
-    html += `<div class="cv-block"><h2 class="cv-block-title">Publications</h2>`;
+    html += `<section class="card cv-block" id="publications"><h2 class="section-title">Publications</h2>`;
     CV.publications.forEach(p => {
       html += `
         <div class="cv-item">
@@ -302,12 +228,83 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>`;
     });
-    html += `</div>`;
+    html += `</section>`;
+  }
+
+  // ── Education
+  if (CV.education.length) {
+    html += `<section class="card cv-block" id="education"><h2 class="section-title">Education</h2>`;
+    CV.education.forEach(e => {
+      html += `
+        <div class="cv-item">
+          <div class="cv-item-main">
+            <div class="cv-item-title">${escapeHtml(e.degree)}</div>
+            <div class="cv-item-sub">${escapeHtml(e.school)}${e.location ? ' — ' + escapeHtml(e.location) : ''}</div>
+            ${e.gpa ? `<div style="font-size:13px;font-weight:600;color:var(--brand);margin-top:3px;">${escapeHtml(e.gpa)}</div>` : ''}
+            ${e.notes && e.notes.length ? `<ul class="cv-notes">${e.notes.map(n => `<li>${linkify(n)}</li>`).join('')}</ul>` : ''}
+          </div>
+          <div class="cv-item-date">${escapeHtml(e.period)}</div>
+        </div>`;
+    });
+    html += `</section>`;
+  }
+
+  // ── Research
+  if (CV.research.length) {
+    html += `<section class="card cv-block" id="research-experience"><h2 class="section-title">Research Experience</h2>`;
+    CV.research.forEach(r => {
+      html += `
+        <div class="cv-item">
+          <div class="cv-item-main">
+            <div class="cv-item-title">${escapeHtml(r.title)} — ${escapeHtml(r.lab)}</div>
+            ${r.supervisor ? `<div class="cv-item-sub">Supervised by ${escapeHtml(r.supervisor)}</div>` : ''}
+            ${r.mentors ? `<div class="cv-item-sub">Mentored by ${escapeHtml(r.mentors)}</div>` : ''}
+            ${r.bullets && r.bullets.length ? `<ul class="cv-notes" style="margin-top:8px;">${r.bullets.map(b => `<li style="margin-bottom:5px;">${linkify(b)}</li>`).join('')}</ul>` : ''}
+          </div>
+          <div class="cv-item-date">${escapeHtml(r.period)}</div>
+        </div>`;
+    });
+    html += `</section>`;
+  }
+
+  // ── Work
+  if (CV.work && CV.work.length) {
+    html += `<section class="card cv-block" id="professional-experience"><h2 class="section-title">Professional Experience</h2>`;
+    CV.work.forEach(w => {
+      html += `
+        <div class="cv-item">
+          <div class="cv-item-main">
+            <div class="cv-item-title">${escapeHtml(w.title)}</div>
+            <div class="cv-item-sub">${escapeHtml(w.company)}</div>
+            ${w.note ? `<div class="cv-item-sub" style="font-style:italic;">${escapeHtml(w.note)}</div>` : ''}
+            ${w.bullets && w.bullets.length ? `<ul class="cv-notes" style="margin-top:8px;">${w.bullets.map(b => `<li style="margin-bottom:5px;">${escapeHtml(b)}</li>`).join('')}</ul>` : ''}
+          </div>
+          <div class="cv-item-date">${escapeHtml(w.period)}</div>
+        </div>`;
+    });
+    html += `</section>`;
+  }
+
+  // ── Honors
+  if (CV.honors.length) {
+    html += `<section class="card cv-block" id="honors"><h2 class="section-title">Honors &amp; Awards</h2>`;
+    CV.honors.forEach(h => {
+      html += `
+        <div class="cv-item">
+          <div class="cv-item-main">
+            <div class="cv-item-title">${escapeHtml(h.award)}</div>
+            <div class="cv-item-sub">${escapeHtml(h.issuer)}</div>
+            ${h.badge ? `<span class="honor-badge">${escapeHtml(h.badge)}</span>` : ''}
+          </div>
+          <div class="cv-item-date">${escapeHtml(h.year)}</div>
+        </div>`;
+    });
+    html += `</section>`;
   }
 
   // ── Skills
   if (CV.skills.length) {
-    html += `<div class="cv-block"><h2 class="cv-block-title">Technical Skills</h2>`;
+    html += `<section class="card cv-block" id="technical-skills"><h2 class="section-title">Technical Skills</h2>`;
     CV.skills.forEach(s => {
       html += `
         <div style="margin-bottom:14px;">
@@ -317,16 +314,16 @@ document.addEventListener('DOMContentLoaded', () => {
           </div>
         </div>`;
     });
-    html += `</div>`;
+    html += `</section>`;
   }
 
   // ── Languages
   if (CV.languages.length) {
     html += `
-      <div class="cv-block"><h2 class="cv-block-title">Languages</h2>
+      <section class="card cv-block" id="languages"><h2 class="section-title">Languages</h2>
       <div class="tag-group">
         ${CV.languages.map(l => `<span class="tag-neutral">${escapeHtml(l.lang)} <span style="color:var(--text-muted);font-size:12px;">(${escapeHtml(l.level)})</span></span>`).join('')}
-      </div></div>`;
+      </div></section>`;
   }
 
   root.innerHTML = html;
