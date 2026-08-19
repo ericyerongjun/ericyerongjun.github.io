@@ -10,7 +10,7 @@ const CV = {
 
   // ── PROFILE ──────────────────────────────────────────────────────────────
   profile: {
-    name:        "RONGJUN YE",
+    name:        "Rongjun Ye",
     title:       "Undergraduate Student - Data Science & Analytics",
     affiliation: "The Hong Kong Polytechnic University",
     contact: [
@@ -208,7 +208,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Education
   if (CV.education.length) {
-    html += `<div class="cv-block"><div class="cv-block-title">Education</div>`;
+    html += `<div class="cv-block"><h2 class="cv-block-title">Education</h2>`;
     CV.education.forEach(e => {
       html += `
         <div class="cv-item">
@@ -226,7 +226,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Research
   if (CV.research.length) {
-    html += `<div class="cv-block"><div class="cv-block-title">Research Experience</div>`;
+    html += `<div class="cv-block"><h2 class="cv-block-title">Research Experience</h2>`;
     CV.research.forEach(r => {
       html += `
         <div class="cv-item">
@@ -244,7 +244,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Work
   if (CV.work && CV.work.length) {
-    html += `<div class="cv-block"><div class="cv-block-title">Professional Experience</div>`;
+    html += `<div class="cv-block"><h2 class="cv-block-title">Professional Experience</h2>`;
     CV.work.forEach(w => {
       html += `
         <div class="cv-item">
@@ -262,7 +262,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Honors
   if (CV.honors.length) {
-    html += `<div class="cv-block"><div class="cv-block-title">Honors &amp; Awards</div>`;
+    html += `<div class="cv-block"><h2 class="cv-block-title">Honors &amp; Awards</h2>`;
     CV.honors.forEach(h => {
       html += `
         <div class="cv-item">
@@ -279,7 +279,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Publications
   if (CV.publications.length) {
-    html += `<div class="cv-block"><div class="cv-block-title">Publications</div>`;
+    html += `<div class="cv-block"><h2 class="cv-block-title">Publications</h2>`;
     CV.publications.forEach(p => {
       html += `
         <div class="cv-item">
@@ -307,7 +307,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Skills
   if (CV.skills.length) {
-    html += `<div class="cv-block"><div class="cv-block-title">Technical Skills</div>`;
+    html += `<div class="cv-block"><h2 class="cv-block-title">Technical Skills</h2>`;
     CV.skills.forEach(s => {
       html += `
         <div style="margin-bottom:14px;">
@@ -323,7 +323,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Languages
   if (CV.languages.length) {
     html += `
-      <div class="cv-block"><div class="cv-block-title">Languages</div>
+      <div class="cv-block"><h2 class="cv-block-title">Languages</h2>
       <div class="tag-group">
         ${CV.languages.map(l => `<span class="tag-neutral">${escapeHtml(l.lang)} <span style="color:var(--text-muted);font-size:12px;">(${escapeHtml(l.level)})</span></span>`).join('')}
       </div></div>`;

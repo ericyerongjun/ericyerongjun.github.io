@@ -16,7 +16,7 @@
   };
 
   const DEFAULT_PROFILE = {
-    name: 'RONGJUN YE',
+    name: 'Rongjun Ye',
     title: 'Undergraduate Student - Data Science & Analytics',
     affiliation: 'The Hong Kong Polytechnic University',
     contact: [
