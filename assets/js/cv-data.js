@@ -114,21 +114,30 @@ const CV = {
   ],
 
   // ── PUBLICATIONS ─────────────────────────────────────────────────────────
-  publications: [],
+  publications: [
+    {
+      title:   "Slides2MindMap: Reconstructing Cognitively Efficient Knowledge Hierarchies from Lecture Slides",
+      authors: "Yuzhi Wang, **Rongjun Ye**, Shengyuan Chen, Huachi Zhou, Jiaqi Bai, Chuang Zhou, Zhicong Hong, Xiao Huang",
+      venue:   "arXiv preprint arXiv:2608.00610, Aug 2026",
+      links: [
+        { href: "https://arxiv.org/abs/2608.00610", label: "arXiv" },
+      ],
+    },
+  ],
 
   // ── TECHNICAL SKILLS ─────────────────────────────────────────────────────
   skills: [
     {
       category: "Mathematical Foundations",
-      items: ["Real Analysis", "Linear Algebra", "Optimization", "Statistical Learning", "High-Dimensional Data Analysis"],
+      items: ["Real Analysis", "Linear Algebra", "Optimization", "Statistical Learning", "High-Dimensional Data Analysis", "Partial Differential Equations"],
     },
     {
       category: "Programming",
-      items: ["PyTorch", "C++", "C", "R", "CUDA"],
+      items: ["Python", "PyTorch", "C++", "C", "R", "CUDA", "Lean"],
     },
     {
       category: "Machine Learning & AI",
-      items: ["Statistical Learning", "Deep Learning", "Reinforcement Learning", "Data Mining", "Agent Memory", "Knowledge Graphs", " Neural Networks"],
+      items: ["Deep Learning", "Neural Networks", "Reinforcement Learning", "Formal Reasoning", "Multimodal Learning", "Trustworthy AI", "Scientific Machine Learning"],
     },
     {
       category: "Tools & Platforms",

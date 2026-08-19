@@ -416,7 +416,7 @@
       drawEntry(renderer, {
         title: item.title,
         details: [
-          item.authors,
+          item.authors ? item.authors.replace(/\*\*/g, '') : null,
           { text: item.venue, font: 'F3', color: COLORS.brand },
           item.badge ? { text: item.badge, font: 'F2', color: COLORS.brand } : null,
           item.desc,
