@@ -14,14 +14,13 @@ const CV = {
     title:       "Undergraduate Student - Data Science & Analytics",
     affiliation: "The Hong Kong Polytechnic University",
     contact: [
-      "yerongjun03@gmail.com",
       "rongjun.ye@connect.polyu.hk",
-      "+852 6928 8029",
     ],
     links: [
       "github.com/ericyerongjun",
       "linkedin.com/in/rongjun-ye-814453331",
       "kaggle.com/rongjunye",
+      "scholar.google.com/citations?user=_vqwyT8AAAAJ",
     ],
   },
 
@@ -45,7 +44,7 @@ const CV = {
     {
       title:       "Research Intern",
       lab:         "TMLR Group, Hong Kong Baptist University (HKBU)",
-      supervisor:  "Prof. Bo Han",
+      mentors:     "Zhanke Zhou and Chentao Cao",
       period:      "Aug 2026 – Present",
       bullets: [],
     },
@@ -225,6 +224,7 @@ document.addEventListener('DOMContentLoaded', () => {
           <div class="cv-item-main">
             <div class="cv-item-title">${escapeHtml(r.title)} — ${escapeHtml(r.lab)}</div>
             ${r.supervisor ? `<div class="cv-item-sub">Supervised by ${escapeHtml(r.supervisor)}</div>` : ''}
+            ${r.mentors ? `<div class="cv-item-sub">Mentored by ${escapeHtml(r.mentors)}</div>` : ''}
             ${r.bullets && r.bullets.length ? `<ul class="cv-notes" style="margin-top:8px;">${r.bullets.map(b => `<li style="margin-bottom:5px;">${linkify(b)}</li>`).join('')}</ul>` : ''}
           </div>
           <div class="cv-item-date">${escapeHtml(r.period)}</div>

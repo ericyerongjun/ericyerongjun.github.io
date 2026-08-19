@@ -20,14 +20,13 @@
     title: 'Undergraduate Student - Data Science & Analytics',
     affiliation: 'The Hong Kong Polytechnic University',
     contact: [
-      'yerongjun03@gmail.com',
       'rongjun.ye@connect.polyu.hk',
-      '+852 6928 8029',
     ],
     links: [
       'github.com/ericyerongjun',
       'linkedin.com/in/rongjun-ye-814453331',
       'kaggle.com/rongjunye',
+      'scholar.google.com/citations?user=_vqwyT8AAAAJ',
     ],
   };
 
@@ -367,7 +366,10 @@
       drawEntry(renderer, {
         title: `${item.title} - ${item.lab}`,
         date: item.period,
-        details: item.supervisor ? [`Supervised by ${item.supervisor}`] : [],
+        details: [
+          item.supervisor ? `Supervised by ${item.supervisor}` : null,
+          item.mentors ? `Mentored by ${item.mentors}` : null,
+        ].filter(Boolean),
         bullets: item.bullets || [],
       });
     });
