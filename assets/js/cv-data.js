@@ -53,7 +53,7 @@ const CV = {
       bullets: [
         "Conducting research on graph-based retrieval-augmented generation (Graph RAG) and knowledge graph construction.",
         "Investigating hierarchical data representations and chunking strategies to improve factual consistency in LLM systems.",
-        "Leading a university-funded research project (K-Cubes) with publication intent targeting top-tier AI conferences.",
+        "Contributing to a university-funded research project (K-Cubes) with publication intent targeting top-tier AI conferences.",
         "Built data pipeline to extract noisy archive data from University ITS and connect the pipeline to our research (https://github.com/ericyerongjun/kcpl).",
         "Investigating potential evaluation methods and baseline for research, and exploring energy-based diffusion and energy-based transformers.",
       ],
