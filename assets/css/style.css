@@ -28,95 +28,120 @@ a:hover { color: var(--link); text-decoration: underline; }
 
 img { max-width: 100%; }
 
-/* ── PAGE ─────────────────────────────── */
-.page {
-  max-width: 960px;
+/* ── MASTHEAD ─────────────────────────── */
+.masthead {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+}
+
+.masthead-inner {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 32px 24px 72px;
-}
-
-/* ── HERO ─────────────────────────────── */
-.hero {
+  padding: 15px;
   display: flex;
-  align-items: center;
-  gap: 32px;
-  margin-bottom: 8px;
+  flex-wrap: wrap;
+  gap: 4px 20px;
 }
 
-.hero-info { flex: 1; min-width: 0; }
+.masthead-inner a {
+  font-size: 15px;
+  color: var(--muted);
+  text-decoration: none;
+}
+.masthead-inner a:hover { color: var(--link); text-decoration: underline; }
 
-.hero-photo {
+[id] { scroll-margin-top: 70px; }
+
+/* ── WRAPPER: 188px sidebar + content column ── */
+.wrap {
+  max-width: 1280px;
+  margin: 15px auto 0;
+  padding: 0 15px 72px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile {
+  width: 188px;
+  flex-shrink: 0;
+  margin-right: 21px;
+  position: sticky;
+  top: 70px;
+}
+
+.profile-avatar {
   width: 163px;
   height: 163px;
   border-radius: 50%;
   object-fit: cover;
-  flex-shrink: 0;
-}
-
-.hero h1 {
-  font-size: 26px;
-  font-weight: 700;
-  color: var(--text);
-  margin-bottom: 8px;
-}
-
-.hero-role {
-  font-size: 15px;
-  color: var(--text);
-  margin-bottom: 3px;
-}
-
-.hero-affil {
-  font-size: 15px;
-  color: var(--muted);
   margin-bottom: 12px;
 }
 
-.hero-links {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 6px 16px;
+.profile-name {
+  font-size: 21px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 6px;
 }
 
-.hero-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
-  font-size: 14px;
-  color: var(--link);
-  text-decoration: none;
-  background: none;
-  border: 0;
-  font-family: var(--font);
-}
-.hero-link:hover { text-decoration: underline; }
-button.hero-link { cursor: pointer; font-size: 14px; }
-button.hero-link:disabled { cursor: wait; opacity: .6; }
-#cv-download-slot { display: contents; }
+.profile-bio { font-size: 15px; margin-bottom: 8px; }
 
-/* ── SECTION NAV ──────────────────────── */
-.site-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 4px 18px;
-  margin-top: 18px;
-  padding: 10px 0;
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-}
-
-.site-nav a {
+.profile-affil {
   font-size: 14px;
   color: var(--muted);
+  line-height: 1.5;
+  margin-bottom: 12px;
+}
+
+.profile-links { list-style: none; }
+
+.profile-links li { margin-bottom: 5px; }
+
+.profile-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 15px;
+  color: var(--text);
   text-decoration: none;
 }
-.site-nav a:hover { color: var(--link); text-decoration: underline; }
+.profile-links a:hover { color: var(--link); text-decoration: underline; }
+.profile-links svg { flex-shrink: 0; opacity: .85; }
 
-[id] { scroll-margin-top: 12px; }
+.content {
+  flex: 1;
+  min-width: 0;
+  padding-left: 52px;
+}
+
+/* the generated CV button sits in the sidebar link list */
+#cv-download-slot .btn-download,
+#cv-download-slot .hero-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 15px;
+  color: var(--text);
+  background: none;
+  border: 0;
+  padding: 0;
+  font-family: var(--font);
+  text-decoration: none;
+  cursor: pointer;
+}
+#cv-download-slot .btn-download:hover,
+#cv-download-slot .hero-link:hover { color: var(--link); text-decoration: underline; }
+#cv-download-slot button:disabled { cursor: wait; opacity: .6; }
 
 /* ── SECTIONS ─────────────────────────── */
 .card { display: block; }
+
+.content > .card:first-child .section-title {
+  margin-top: 0;
+}
 
 .section-title {
   font-size: 21px;
@@ -263,12 +288,17 @@ button.hero-link:disabled { cursor: wait; opacity: .6; }
 .btn-download:hover { text-decoration: underline; }
 
 /* ── RESPONSIVE ───────────────────────── */
-@media (max-width: 768px) {
-  .page { padding: 26px 18px 56px; }
-  .hero { flex-direction: column; align-items: flex-start; gap: 18px; }
-  .hero-photo { width: 132px; height: 132px; }
-  .hero h1 { font-size: 23px; }
-  .section-title { font-size: 19px; }
+@media (max-width: 900px) {
+  .wrap { flex-direction: column; padding-bottom: 56px; }
+  .profile {
+    position: static;
+    width: 100%;
+    margin: 0 0 24px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid var(--border);
+  }
+  .content { padding-left: 0; }
+  .masthead-inner { padding: 12px 15px; }
 }
 
 @media (max-width: 560px) {
@@ -277,4 +307,6 @@ button.hero-link:disabled { cursor: wait; opacity: .6; }
   .cv-item-date { white-space: normal; padding-top: 0; }
   .news-item { flex-direction: column; gap: 2px; }
   .news-date { width: auto; }
+  .profile-avatar { width: 132px; height: 132px; }
+  .section-title { font-size: 19px; }
 }

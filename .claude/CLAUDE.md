@@ -2,8 +2,11 @@
 
 Pure HTML/CSS/JS static site. No build step. Single page: everything lives in index.html.
 
-- `index.html` — the whole site. Hand-written sections (hero, News, About, Research,
-  Research Projects) followed by `<div id="cv-root">`, which cv-data.js fills.
+- `index.html` — the whole site: a sticky masthead nav, a 188px left sidebar
+  (`.profile`) holding the avatar and links, and a `.content` column with the
+  hand-written sections (News, About, Research, Research Projects) followed by
+  `<div id="cv-root">`, which cv-data.js fills. Layout widths match the Academic
+  Pages theme: 1280px wrapper, 188px sidebar, 52px content gutter.
 - `assets/js/cv-data.js` — the CV data (`const CV`) **and** the renderer that injects
   Publications, Education, Research Experience, Professional Experience, Honors,
   Technical Skills, and Languages into `#cv-root`. Single source of truth for those
