@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Publications
   if (CV.publications.length) {
-    html += `<section class="card cv-block" id="publications"><h2 class="section-title">Publications</h2>`;
+    html += `<section class="card cv-block" id="publications"><h2 class="section-title">📝 Publications</h2>`;
     CV.publications.forEach(p => {
       html += `
         <div class="cv-item">
@@ -219,9 +219,9 @@ document.addEventListener('DOMContentLoaded', () => {
               <div class="pub-links" style="margin-top:10px;">
                 ${p.links.map(l => {
                   if (l.href) {
-                    return `<a href="${escapeHtml(l.href)}" class="pub-link" target="_blank" rel="noopener">${svgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>')} ${escapeHtml(l.label)}</a>`;
+                    return `<a href="${escapeHtml(l.href)}" class="pub-link" target="_blank" rel="noopener">${escapeHtml(l.label)}</a>`;
                   }
-                  return `<span class="pub-link btn-disabled" aria-disabled="true">${svgIcon('<path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>')} ${escapeHtml(l.label)}</span>`;
+                  return `<span class="pub-link btn-disabled" aria-disabled="true">${escapeHtml(l.label)}</span>`;
                 }).join('')}
               </div>`
             : ''}
@@ -233,7 +233,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Education
   if (CV.education.length) {
-    html += `<section class="card cv-block" id="education"><h2 class="section-title">Education</h2>`;
+    html += `<section class="card cv-block" id="education"><h2 class="section-title">📖 Education</h2>`;
     CV.education.forEach(e => {
       html += `
         <div class="cv-item">
@@ -251,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Research
   if (CV.research.length) {
-    html += `<section class="card cv-block" id="research-experience"><h2 class="section-title">Research Experience</h2>`;
+    html += `<section class="card cv-block" id="research-experience"><h2 class="section-title">🧪 Research Experience</h2>`;
     CV.research.forEach(r => {
       html += `
         <div class="cv-item">
@@ -269,7 +269,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Work
   if (CV.work && CV.work.length) {
-    html += `<section class="card cv-block" id="professional-experience"><h2 class="section-title">Professional Experience</h2>`;
+    html += `<section class="card cv-block" id="professional-experience"><h2 class="section-title">💼 Professional Experience</h2>`;
     CV.work.forEach(w => {
       html += `
         <div class="cv-item">
@@ -287,7 +287,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Honors
   if (CV.honors.length) {
-    html += `<section class="card cv-block" id="honors"><h2 class="section-title">Honors &amp; Awards</h2>`;
+    html += `<section class="card cv-block" id="honors"><h2 class="section-title">🎖 Honors &amp; Awards</h2>`;
     CV.honors.forEach(h => {
       html += `
         <div class="cv-item">
@@ -304,7 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ── Skills
   if (CV.skills.length) {
-    html += `<section class="card cv-block" id="technical-skills"><h2 class="section-title">Technical Skills</h2>`;
+    html += `<section class="card cv-block" id="technical-skills"><h2 class="section-title">🛠 Technical Skills</h2>`;
     CV.skills.forEach(s => {
       html += `
         <div style="margin-bottom:14px;">
@@ -320,7 +320,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ── Languages
   if (CV.languages.length) {
     html += `
-      <section class="card cv-block" id="languages"><h2 class="section-title">Languages</h2>
+      <section class="card cv-block" id="languages"><h2 class="section-title">🌐 Languages</h2>
       <div class="tag-group">
         ${CV.languages.map(l => `<span class="tag-neutral">${escapeHtml(l.lang)} <span style="color:var(--text-muted);font-size:12px;">(${escapeHtml(l.level)})</span></span>`).join('')}
       </div></section>`;
