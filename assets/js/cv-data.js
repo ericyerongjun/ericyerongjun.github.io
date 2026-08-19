@@ -43,6 +43,13 @@ const CV = {
   // ── RESEARCH EXPERIENCE ──────────────────────────────────────────────────
   research: [
     {
+      title:       "Research Intern",
+      lab:         "TMLR Group, Hong Kong Baptist University (HKBU)",
+      supervisor:  "Prof. Bo Han",
+      period:      "Aug 2026 – Present",
+      bullets: [],
+    },
+    {
       title:       "Student Assistant",
       lab:         "The Hong Kong Polytechnic University (PolyU)",
       supervisor:  "Prof. Xiao Huang",
