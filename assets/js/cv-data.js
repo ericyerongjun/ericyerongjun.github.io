@@ -28,15 +28,12 @@ const CV = {
   // ── EDUCATION ────────────────────────────────────────────────────────────
   education: [
     {
-      degree:   "BSc (Honours) in Data Science and Analytics",
+      degree:   "Bachelor of Science (Data Science and Analytics)",
       school:   "The Hong Kong Polytechnic University",
       location: "Hong Kong",
-      period:   "Aug 2024 – May 2027 (Expected)",
+      period:   "Aug 2024 – May 2027 (Early Graduation)",
       gpa:      "GPA: 3.73/4.3",
       notes: [
-        "Pursuing early graduation (3-year completion)",
-        "Dean's Honours List (2024/25); Full Entry Scholarship",
-        "Student Support Scholarship; Department of Applied Mathematics Scholar; PolyU Scholar",
         "Courses relevant to AI: Calculus (A+), Linear Algebra (A+), Programming Fundamentals (A+), Principles of Programming (A+), Further Mathematical Methods (A+), Multivariable Calculus (A), Fundamentals of AI and Data Analytics (A), Introduction to Differential Calculus (A)",
         "Core Coursework: Statistics, Linear Algebra, Multivariable Calculus, Stochastic Processes, Operations Research Methods, Statistical Inference, Statistical Learning, Applied Linear Models, Data Mining, Database Systems, Optimization Methods, Machine Learning, ODE, PDE, Big Data Analytics",
       ],
