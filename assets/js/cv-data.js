@@ -32,34 +32,47 @@ const CV = {
       location: "Hong Kong",
       period:   "Aug 2024 – May 2027 (Early Graduation)",
       gpa:      "GPA: 3.73/4.3",
-      notes: [
-        "Courses relevant to AI: Calculus (A+), Linear Algebra (A+), Programming Fundamentals (A+), Principles of Programming (A+), Further Mathematical Methods (A+), Multivariable Calculus (A), Fundamentals of AI and Data Analytics (A), Introduction to Differential Calculus (A)",
-        "Core Coursework: Statistics, Linear Algebra, Multivariable Calculus, Stochastic Processes, Operations Research Methods, Statistical Inference, Statistical Learning, Applied Linear Models, Data Mining, Database Systems, Optimization Methods, Machine Learning, ODE, PDE, Big Data Analytics",
-      ],
+    },
+  ],
+
+  // ── ADVISORS ─────────────────────────────────────────────────────────────
+  // Names, titles, and interests follow each professor's PolyU staff page.
+  advisors: [
+    {
+      role: "Academic advisor",
+      name: "Prof. Xiaoqi Yang",
+      affiliation: "Professor, Department of Applied Mathematics",
+      url: "https://www.polyu.edu.hk/ama/people/academic-staff/prof-yang-xiaoqi/",
+      site: "https://www.polyu.edu.hk/ama/profile/xqyang/",
+      interests: ["Mathematical optimization", "Vector optimization", "Variational analysis", "Financial optimization"],
+    },
+    {
+      role: "Academic advisor",
+      name: "Prof. Binyan Jiang",
+      affiliation: "Associate Head (Teaching) and Professor, Department of Data Science and Artificial Intelligence",
+      url: "https://www.polyu.edu.hk/dsai/people/academic-staff/jiangbinyan/",
+      site: "https://sites.google.com/site/binyanj",
+      interests: ["High-dimensional data analysis", "Network data analysis"],
+    },
+    {
+      role: "Capstone supervisor",
+      name: "Prof. Korris Chung Fu Lai",
+      affiliation: "Associate Professor, Department of Data Science and Artificial Intelligence",
+      note: "Joint appointment with the Department of Computing",
+      url: "https://www.polyu.edu.hk/comp/people/academic-staff/prof-chung-fu-lai-korris/",
+      site: "https://web.comp.polyu.edu.hk/cskchung/",
+      interests: ["Machine learning", "Artificial intelligence", "Data mining"],
     },
   ],
 
   // ── RESEARCH EXPERIENCE ──────────────────────────────────────────────────
   research: [
     {
-      title:       "Research Intern",
-      lab:         "TMLR Group, Hong Kong Baptist University (HKBU)",
-      mentors:     "Zhanke Zhou and Chentao Cao",
-      period:      "Aug 2026 – Present",
-      bullets: [],
-    },
-    {
-      title:       "Student Assistant",
-      lab:         "The Hong Kong Polytechnic University (PolyU)",
+      title:       "Student Research Assistant",
+      lab:         "PolyU X AI Lab, The Hong Kong Polytechnic University",
       supervisor:  "Prof. Xiao Huang",
       period:      "Sep 2025 – Present",
-      bullets: [
-        "Conducting research on graph-based retrieval-augmented generation (Graph RAG) and knowledge graph construction.",
-        "Investigating hierarchical data representations and chunking strategies to improve factual consistency in LLM systems.",
-        "Contributing to a university-funded research project (K-Cubes) with publication intent targeting top-tier AI conferences.",
-        "Built data pipeline to extract noisy archive data from University ITS and connect the pipeline to our research (https://github.com/ericyerongjun/kcpl).",
-        "Investigating potential evaluation methods and baseline for research, and exploring energy-based diffusion and energy-based transformers.",
-      ],
+      bullets: [],
     },
   ],
 
@@ -70,12 +83,7 @@ const CV = {
       company: "Hong Kong Monetary Authority (HKMA)",
       period:  "Aug 2025 – Sep 2025",
       note:    "Supervised by Wickson Hui · Resigned to continue study",
-      bullets: [
-        "Developed low-code, agentic AI systems and internal data-driven automation tools supporting regulatory and analytical workflows with Dify.",
-        "Built structured data processing pipelines and RAG-based document retrieval systems to improve knowledge accessibility across departments.",
-        "Automated knowledge base workflows and collaborated with cross-functional teams on AI system integration and deployment.",
-        "Led internal document knowledge database construction, created the documentation for metadata management and system architecture.",
-      ],
+      bullets: [],
     },
   ],
 
@@ -125,32 +133,9 @@ const CV = {
     },
   ],
 
-  // ── TECHNICAL SKILLS ─────────────────────────────────────────────────────
-  skills: [
-    {
-      category: "Mathematical Foundations",
-      items: ["Real Analysis", "Linear Algebra", "Optimization", "Statistical Learning", "High-Dimensional Data Analysis", "Partial Differential Equations"],
-    },
-    {
-      category: "Programming",
-      items: ["Python", "PyTorch", "C++", "C", "R", "CUDA", "Lean"],
-    },
-    {
-      category: "Machine Learning & AI",
-      items: ["Deep Learning", "Neural Networks", "Reinforcement Learning", "Formal Reasoning", "Multimodal Learning", "Trustworthy AI", "Scientific Machine Learning"],
-    },
-    {
-      category: "Tools & Platforms",
-      items: ["Git", "Linux/Unix", "Database Systems", "Server Administration", "Cloud", "Command Lines"],
-    },
-  ],
+  skills: [],
 
-  // ── LANGUAGES ────────────────────────────────────────────────────────────
-  languages: [
-    { lang: "Mandarin",  level: "Native"           },
-    { lang: "Cantonese", level: "Native"            },
-    { lang: "English",   level: "Highly Proficient" },
-  ],
+  languages: [],
 
   // ── CV PDF ───────────────────────────────────────────────────────────────
   cvPdfPath: null,              // set to "assets/cv.pdf" once the PDF is uploaded
@@ -244,6 +229,29 @@ document.addEventListener('DOMContentLoaded', () => {
             ${e.notes && e.notes.length ? `<ul class="cv-notes">${e.notes.map(n => `<li>${linkify(n)}</li>`).join('')}</ul>` : ''}
           </div>
           <div class="cv-item-date">${escapeHtml(e.period)}</div>
+        </div>`;
+    });
+    html += `</section>`;
+  }
+
+  // ── Advisors
+  if (CV.advisors && CV.advisors.length) {
+    html += `<section class="card cv-block" id="advisors"><h2 class="section-title">🎓 Advisors</h2>`;
+    CV.advisors.forEach(a => {
+      const links = [
+        a.url ? `<a href="${escapeHtml(a.url)}" class="proj-link" target="_blank" rel="noopener">Faculty page</a>` : '',
+        a.site ? `<a href="${escapeHtml(a.site)}" class="proj-link" target="_blank" rel="noopener">Personal site</a>` : '',
+      ].filter(Boolean).join('');
+      html += `
+        <div class="cv-item">
+          <div class="cv-item-main">
+            <div class="advisor-role">${escapeHtml(a.role)}</div>
+            <div class="cv-item-title">${escapeHtml(a.name)}</div>
+            <div class="cv-item-sub">${escapeHtml(a.affiliation)}</div>
+            ${a.note ? `<div class="cv-item-sub">${escapeHtml(a.note)}</div>` : ''}
+            ${links ? `<div class="proj-links" style="margin-top:6px;">${links}</div>` : ''}
+            ${a.interests && a.interests.length ? `<div class="tag-group" style="margin-top:8px;">${a.interests.map(i => `<span class="tag-neutral">${escapeHtml(i)}</span>`).join('')}</div>` : ''}
+          </div>
         </div>`;
     });
     html += `</section>`;

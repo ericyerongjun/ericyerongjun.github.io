@@ -358,6 +358,26 @@
     });
   }
 
+  function renderAdvisors(renderer, advisors) {
+    if (!advisors || !advisors.length) return;
+
+    drawSection(renderer, 'Advisors');
+    advisors.forEach(item => {
+      const interests = item.interests && item.interests.length
+        ? item.interests.join(', ')
+        : null;
+      drawEntry(renderer, {
+        title: item.name,
+        date: item.role,
+        details: [
+          item.affiliation,
+          item.note,
+          interests,
+        ].filter(Boolean),
+      });
+    });
+  }
+
   function renderResearch(renderer, research) {
     if (!research || !research.length) return;
 
@@ -518,6 +538,7 @@
 
     drawHeader(renderer, profile);
     renderEducation(renderer, cv.education);
+    renderAdvisors(renderer, cv.advisors);
     renderResearch(renderer, cv.research);
     renderWork(renderer, cv.work);
     renderHonors(renderer, cv.honors);

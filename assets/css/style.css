@@ -237,6 +237,11 @@ img { max-width: 100%; }
 }
 
 .cv-item-title { font-size: 16px; font-weight: 700; color: var(--text); }
+.advisor-role {
+  font-size: 13px;
+  color: var(--muted);
+  margin-bottom: 1px;
+}
 .cv-item-sub { font-size: 14px; color: var(--muted); margin-top: 1px; }
 .cv-item-desc { font-size: 15px; margin-top: 4px; }
 
