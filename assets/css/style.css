@@ -214,6 +214,18 @@ img { max-width: 100%; }
 }
 .proj-link:hover { text-decoration: underline; }
 
+.proj-btn {
+  display: inline-flex;
+  align-items: center;
+  font-size: 14px;
+  color: var(--link);
+  text-decoration: none;
+  border: 1px solid var(--rule);
+  border-radius: 3px;
+  padding: 4px 12px;
+}
+.proj-btn:hover { text-decoration: underline; }
+
 /* ── CV BLOCKS (rendered from cv-data.js) ─ */
 .cv-block { display: block; }
 

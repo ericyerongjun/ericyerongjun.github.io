@@ -71,6 +71,7 @@ const CV = {
       title:       "Student Research Assistant",
       lab:         "PolyU X AI Lab, The Hong Kong Polytechnic University",
       supervisor:  "Prof. Xiao Huang",
+      supervisorUrl: "https://web.comp.polyu.edu.hk/xiaohuang/",
       period:      "Sep 2025 – Present",
       bullets: [],
     },
@@ -265,7 +266,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <div class="cv-item">
           <div class="cv-item-main">
             <div class="cv-item-title">${escapeHtml(r.title)} — ${escapeHtml(r.lab)}</div>
-            ${r.supervisor ? `<div class="cv-item-sub">Supervised by ${escapeHtml(r.supervisor)}</div>` : ''}
+            ${r.supervisor ? `<div class="cv-item-sub">Supervised by ${r.supervisorUrl ? `<a href="${escapeHtml(r.supervisorUrl)}" target="_blank" rel="noopener">${escapeHtml(r.supervisor)}</a>` : escapeHtml(r.supervisor)}</div>` : ''}
             ${r.mentors ? `<div class="cv-item-sub">Mentored by ${escapeHtml(r.mentors)}</div>` : ''}
             ${r.bullets && r.bullets.length ? `<ul class="cv-notes" style="margin-top:8px;">${r.bullets.map(b => `<li style="margin-bottom:5px;">${linkify(b)}</li>`).join('')}</ul>` : ''}
           </div>
