@@ -134,6 +134,18 @@ const CV = {
     },
   ],
 
+  // ── ACADEMIC SERVICE ────────────────────────────────────────────────────
+  service: [
+    {
+      role:   "Reviewer",
+      venue:  "ADMA 2026",
+    },
+    {
+      role:   "Program Committee Member",
+      venue:  "WSDM 2027",
+    },
+  ],
+
   skills: [],
 
   languages: [],
@@ -212,6 +224,22 @@ document.addEventListener('DOMContentLoaded', () => {
               </div>`
             : ''}
           </div>
+        </div>`;
+    });
+    html += `</section>`;
+  }
+
+  // ── Academic service
+  if (CV.service && CV.service.length) {
+    html += `<section class="card cv-block" id="service"><h2 class="section-title">🤝 Academic Service</h2>`;
+    CV.service.forEach(s => {
+      html += `
+        <div class="cv-item">
+          <div class="cv-item-main">
+            <div class="cv-item-title">${escapeHtml(s.role)}</div>
+            <div class="cv-item-sub">${escapeHtml(s.venue)}</div>
+          </div>
+          ${s.period ? `<div class="cv-item-date">${escapeHtml(s.period)}</div>` : ''}
         </div>`;
     });
     html += `</section>`;

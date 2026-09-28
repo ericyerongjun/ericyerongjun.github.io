@@ -445,6 +445,19 @@
     });
   }
 
+  function renderService(renderer, service) {
+    if (!service || !service.length) return;
+
+    drawSection(renderer, 'Academic Service');
+    service.forEach(item => {
+      drawEntry(renderer, {
+        title: item.role,
+        date: item.period || '',
+        details: [item.venue],
+      });
+    });
+  }
+
   function renderSkills(renderer, skills) {
     if (!skills || !skills.length) return;
 
@@ -543,6 +556,7 @@
     renderWork(renderer, cv.work);
     renderHonors(renderer, cv.honors);
     renderPublications(renderer, cv.publications);
+    renderService(renderer, cv.service);
     renderSkills(renderer, cv.skills);
     renderLanguages(renderer, cv.languages);
     renderer.addFooter();
