@@ -1,0 +1,52 @@
+name: fix-photos
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/fix-photos.yml
+permissions:
+  contents: write
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Point photograph srcs at the hosted JPEGs
+        run: |
+          python3 << 'PY'
+          from pathlib import Path
+          repl = {
+              "/hero-earth.svg": "https://i.imgur.com/8ifShZg.jpeg",
+              "/chapter-inference.svg": "https://i.imgur.com/mNCc1H3.jpeg",
+              "/chapter-silicon.svg": "https://i.imgur.com/R9rJHAj.jpeg",
+              "/chapter-campus.svg": "https://i.imgur.com/vdN1nnP.jpeg",
+              "/chapter-horizon.svg": "https://i.imgur.com/IRnOHTk.jpeg",
+              "/portrait.svg": "https://i.imgur.com/xcGnuN6.jpeg",
+          }
+          for name in ("index.html", "404.html"):
+              path = Path(name)
+              text = path.read_text()
+              if "/hero-earth.svg" not in text:
+                  print(name, "already rewritten")
+                  continue
+              for old, new in repl.items():
+                  count = text.count(old)
+                  if count != 2:
+                      raise SystemExit(f"{name}: {old} count {count}")
+                  text = text.replace(old, new)
+              if text.count("&") < 10 or "favicon.svg?v=4" not in text:
+                  raise SystemExit(f"{name}: sanity check failed")
+              path.write_text(text)
+              print("rewrote", name, len(text))
+          PY
+      - name: Commit
+        run: |
+          git config user.name "Eric"
+          git config user.email "yerongjun03@gmail.com"
+          git add index.html 404.html
+          if git diff --cached --quiet; then
+            echo "no changes"
+            exit 0
+          fi
+          git commit -m "Show the chapter photographs [skip ci]"
+          git push
