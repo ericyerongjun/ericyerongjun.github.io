@@ -1,7 +1,5 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <rect width="32" height="32" rx="6" fill="#000000"/>
-  <g fill="#ffffff" transform="translate(16 16)">
-    <rect x="-11.2" y="-2.15" width="22.4" height="4.3" transform="rotate(32)"/>
-    <rect x="-11.2" y="-2.15" width="22.4" height="4.3" transform="rotate(-32)"/>
-  </g>
+  <rect width="32" height="32" fill="#000000"/>
+  <polygon fill="#ffffff" points="3.16,6.89 30.32,22.57 28.84,25.11 1.68,9.43"/>
+  <polygon fill="#ffffff" points="1.68,22.57 28.84,6.89 30.32,9.43 3.16,25.11"/>
 </svg>
